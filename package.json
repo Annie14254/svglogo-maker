@@ -1,0 +1,16 @@
+{
+  "name": "svglogo-maker",
+  "version": "1.0.0",
+  "description": "[![License Badge](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^8.2.4",
+    "jest": "^24.9.0"
+  }
+}
