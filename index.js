@@ -1,8 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs")
-const Triangle = require("./lib/shapes/Triangle")
-const Square = require("./lib/shapes/Square")
-const Circle  = require("./lib/shapes/Square")
+const {Triangle, Square, Circle} = require("./lib/shapes")
 
 // get information from user
 const questions = [
@@ -14,7 +12,7 @@ const questions = [
     {
         type: "input",
         name: "textcolor",
-        message: "What should the color of the text be?"
+        message: "What should the color of the text be? Enter a color name or hexadecimal number."
     },
     {
         type: "list",
@@ -24,37 +22,49 @@ const questions = [
     },
     {
         type: "input",
-        name: "textcolor",
-        message: "What should the shape's color be?"
+        name: "fillcolor",
+        message: "What should the shape's color be? Enter a color name or hexadecimal number."
     },
 ];
 
-// make classes to get objects to do the work of generating stuff??
-// generate svg file similar to the html from the activities or the md from the previous challenge
 
 
 // depending on shape, make a new object out of the class
 // pass into triangle() whatever you need to make it, e.g. the fill color
-const newShape = new Triangle(color);
-const svgCode = newShape.render(initials)
+    // const newShape = new Triangle(color);
+    // const svgCode = newShape.render(initials)
 
 // write to file
 function writeToFile(data) {
-    fs.writeFile("./example_svgs/examplesvg.svg", data, (err) =>
+
+    var generatedShape
+
+    if(data.shape = "circle"){
+        generatedShape = new Circle(data.initials, data.textcolor, data.fillcolor)
+        render(generatedShape)
+    } else if (data.shape = "triangle"){
+        generatedShape = new Triangle(data.initials, data.textcolor, data.fillcolor)
+        render(generatedShape)
+    } else if (data.shape = "square"){
+        generatedShape = new Square(data.initials, data.textcolor, data.fillcolor)
+        render(generatedShape)
+    }
+
+    fs.writeFile("./example_svgs/examplesvg.svg", generatedShape, (err) =>
         err ? console.error(err) : console.log('Logo generated!'))
+
 
 }
 
-// init function CHANGE THIS FROM README VAR TO SVG VAR
+// init function
 function init(){
     inquirer.prompt(questions)
     .then((data) => {
-        console.log(data)
-        writeToFile(generateMarkdown(data));
+        writeToFile(data)
     })
 }
 
-
+init();
 // can pass intials through render
 
 // create new class for initials, etc.
