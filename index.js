@@ -38,7 +38,22 @@ const questions = [
 const newShape = new Triangle(color);
 const svgCode = newShape.render(initials)
 
-// write to file using above code
+// write to file
+function writeToFile(data) {
+    fs.writeFile("./example_svgs/examplesvg.svg", data, (err) =>
+        err ? console.error(err) : console.log('Logo generated!'))
+
+}
+
+// init function CHANGE THIS FROM README VAR TO SVG VAR
+function init(){
+    inquirer.prompt(questions)
+    .then((data) => {
+        console.log(data)
+        writeToFile(generateMarkdown(data));
+    })
+}
+
 
 // can pass intials through render
 
