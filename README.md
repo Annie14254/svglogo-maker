@@ -20,10 +20,12 @@ npm install
 ```
 
 ## Usage
-Clone the repository to your local computer. (placeholder)
+Clone the repository to your local computer. Begin by opening the integrated terminal on the index.js file and installing dependencies by running npm install, as shown above. Then, enter node index.js to run the application, and answer the questions in the terminal. Once all questions have been answered, an SVG file will be generated under the name examplesvg.svg in the example_svgs folder. To preview the file, you can copy the text into the examplesvg.md file and preview the markdown file.
+
+A video showing the functionality of the application can be found [here](https://drive.google.com/file/d/1KzkkHt7xPxu4ckBiMcniU6F_81HSSlEL/view?usp=sharing).
 
 ## Testing
-To test the application, run the following line in the terminal.
+To test the application, run the following line in the terminal while in the integrated terminal for the shapes.test.js file.
 
 ```
 npm test
