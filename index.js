@@ -39,15 +39,21 @@ function writeToFile(data) {
 
     var generatedShape
 
-    if(data.shape = "circle"){
-        generatedShape = new Circle(data.initials, data.textcolor, data.fillcolor)
-        render(generatedShape)
-    } else if (data.shape = "triangle"){
-        generatedShape = new Triangle(data.initials, data.textcolor, data.fillcolor)
-        render(generatedShape)
-    } else if (data.shape = "square"){
-        generatedShape = new Square(data.initials, data.textcolor, data.fillcolor)
-        render(generatedShape)
+    if(data.shape == "circle"){
+
+        generatedShape = new Circle(data.fillcolor, data.initials, data.textcolor)
+        generatedShape = generatedShape.render(data.fillcolor, data.initials, data.textcolor)
+
+    } else if (data.shape == "triangle"){
+
+        generatedShape = new Triangle(data.fillcolor, data.initials, data.textcolor)
+        generatedShape = generatedShape.render(data.fillcolor, data.initials, data.textcolor)
+
+    } else if (data.shape == "square"){
+
+        generatedShape = new Square(data.fillcolor, data.initials, data.textcolor)
+        generatedShape = generatedShape.render(data.fillcolor, data.initials, data.textcolor)
+
     }
 
     fs.writeFile("./example_svgs/examplesvg.svg", generatedShape, (err) =>
@@ -60,11 +66,9 @@ function writeToFile(data) {
 function init(){
     inquirer.prompt(questions)
     .then((data) => {
+        console.log(data)
         writeToFile(data)
     })
 }
 
 init();
-// can pass intials through render
-
-// create new class for initials, etc.
