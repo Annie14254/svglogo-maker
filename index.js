@@ -29,11 +29,9 @@ const questions = [
 
 
 
-// depending on shape, make a new object out of the class
-// pass into triangle() whatever you need to make it, e.g. the fill color
-    // const newShape = new Triangle(color);
-    // const svgCode = newShape.render(initials)
 
+// depending on shape, make a new object from the class
+// use render to write to the svg file
 // write to file
 function writeToFile(data) {
 
