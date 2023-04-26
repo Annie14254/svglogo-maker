@@ -33,6 +33,7 @@ npm test
 
 ## Functionality
 An example of a logo produced using the application is shown below.
+
 <img src = "./example_svgs/examplesvg_original.svg" alt = "A logo made from a red circle with SVG on it in white text"/>
 
 ## Contribution
