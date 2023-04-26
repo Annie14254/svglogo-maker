@@ -29,25 +29,29 @@ const questions = [
 
 
 
-// depending on shape, make a new object out of the class
-// pass into triangle() whatever you need to make it, e.g. the fill color
-    // const newShape = new Triangle(color);
-    // const svgCode = newShape.render(initials)
 
+// depending on shape, make a new object from the class
+// use render to write to the svg file
 // write to file
 function writeToFile(data) {
 
     var generatedShape
 
-    if(data.shape = "circle"){
-        generatedShape = new Circle(data.initials, data.textcolor, data.fillcolor)
-        render(generatedShape)
-    } else if (data.shape = "triangle"){
-        generatedShape = new Triangle(data.initials, data.textcolor, data.fillcolor)
-        render(generatedShape)
-    } else if (data.shape = "square"){
-        generatedShape = new Square(data.initials, data.textcolor, data.fillcolor)
-        render(generatedShape)
+    if(data.shape == "circle"){
+
+        generatedShape = new Circle(data.fillcolor, data.initials, data.textcolor)
+        generatedShape = generatedShape.render(data.fillcolor, data.initials, data.textcolor)
+
+    } else if (data.shape == "triangle"){
+
+        generatedShape = new Triangle(data.fillcolor, data.initials, data.textcolor)
+        generatedShape = generatedShape.render(data.fillcolor, data.initials, data.textcolor)
+
+    } else if (data.shape == "square"){
+
+        generatedShape = new Square(data.fillcolor, data.initials, data.textcolor)
+        generatedShape = generatedShape.render(data.fillcolor, data.initials, data.textcolor)
+
     }
 
     fs.writeFile("./example_svgs/examplesvg.svg", generatedShape, (err) =>
@@ -60,11 +64,9 @@ function writeToFile(data) {
 function init(){
     inquirer.prompt(questions)
     .then((data) => {
+        console.log(data)
         writeToFile(data)
     })
 }
 
 init();
-// can pass intials through render
-
-// create new class for initials, etc.
